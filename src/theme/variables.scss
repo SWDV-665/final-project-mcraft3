@@ -86,3 +86,18 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+// AlertController
+$alert-min-width: 350px;
+
+// Minimum width of the alert
+$alert-max-height: 90%;
+
+// Maximum height of the alert
+$alert-button-line-height: 20px; 	
+
+// Line height of the alert button
+$alert-button-font-size: 14px; 	
+
+// Font size of the alert button
+$alert-input-placeholder-color: #999;
