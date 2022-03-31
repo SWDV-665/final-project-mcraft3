@@ -220,14 +220,22 @@ export class DashboardPage {
       position: 'bottom',
       showCloseButton: true,
     });
-  
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
     });
-  
     toast.present();
     // Remove one object at given index.
     this.proposals.splice(index, 1);
+  }
+
+  editItem(proposal, index) {
+    console.log("Edit item - ", proposal, index);
+    const toast = this.toastCtrl.create({
+      message: 'Editing Item - ' + index + " ...",
+      duration: 3000
+    });
+    toast.present();
+    this.showEditItemPrompt(proposal, index);
   }
   
   addItem() {
@@ -261,12 +269,6 @@ export class DashboardPage {
           name: 'Phone',
           placeholder: 'telephone xxx-xxx-xxxx'
         },
-        /*
-        {
-          name: 'AltPOCEmail',
-          placeholder: 'Alternate POC email@email.com'
-        },
-        */
         {
           name: 'Department',
           placeholder: 'Department'
@@ -287,20 +289,6 @@ export class DashboardPage {
           name: 'Description',
           placeholder: 'Description'
         },
-        /*
-        {
-          name: 'SafetyIssue',
-          placeholder: 'yes or no'
-        },
-        {
-          name: 'SecurityIssue',
-          placeholder: 'yes or no'
-        },
-        {
-          name: 'Date Submitted',
-          placeholder: 'Date Submitted'
-        }
-        */
       ],
   
       buttons: [
@@ -322,5 +310,83 @@ export class DashboardPage {
       });
       prompt.present();
     }
+
+      // Use Alert Controller Prompt to edit existing item in items array.
+  showEditItemPrompt(proposal, index) {
+    const prompt = this.alertCtrl.create({
+      title: 'Edit Item',
+      message: "Please edit item...",
+      // ternary null operator for values. If item passed, use it, if not null.
+      inputs: [
+        {
+          name: 'ProjectID',
+          placeholder: 'Project ID',
+          value: proposal ? proposal.ProjectID : null
+        },
+        { 
+          name: 'LastName',
+          placeholder: 'Last Name',
+          value: proposal ? proposal.LastName : null
+        },
+        {
+          name: 'FirstName',
+          placeholder: 'First Name',
+          value: proposal ? proposal.FirstName : null
+        },
+        {
+          name: 'Email',
+          placeholder: 'Primary POC email@emailcom',
+          value: proposal ? proposal.Email : null  
+        },
+        {
+          name: 'Phone',
+          placeholder: 'telephone xxx-xxx-xxxx',
+          value: proposal ? proposal.Phone : null
+        },
+        {
+          name: 'Department',
+          placeholder: 'Department',
+          value: proposal ? proposal.Department : null
+        },
+        {
+          name: 'DivBranchCode',
+          placeholder: 'Division / Branch Code',
+          value: proposal ? proposal.DivBranchCode : null
+        },  
+        {
+          name: 'Category',
+          placeholder: 'Category',
+          value: proposal ? proposal.Category : null
+        },
+        {
+          name: 'Subject',
+          placeholder: 'Subject',
+          value: proposal ? proposal.Subject : null
+        },
+        {
+          name: 'Description',
+          placeholder: 'Description',
+          value: proposal ? proposal.Description : null
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data  => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: proposal => {
+            console.log('Save clicked', proposal);
+            this.proposals[index] = proposal;
+          }
+        }
+      ]
+      });
+      prompt.present();
+    }
+
 
 }
