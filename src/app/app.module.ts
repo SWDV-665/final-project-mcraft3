@@ -13,6 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProposalsServiceProvider } from '../providers/proposals-service/proposals-service';
+import { InputDialogServiceProvider } from '../providers/input-dialog-service/input-dialog-service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ProposalsServiceProvider } from '../providers/proposals-service/proposa
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProposalsServiceProvider
+    ProposalsServiceProvider,
+    InputDialogServiceProvider
   ]
 })
 export class AppModule {}

@@ -4,6 +4,7 @@ import { ToastController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 // Go up one extra level (add extra ../) to get app folder and back down to providers folder
 import { ProposalsServiceProvider } from '../../providers/proposals-service/proposals-service';
+import { InputDialogServiceProvider } from '../../providers/input-dialog-service/input-dialog-service';
 
 /**
  * Generated class for the DashboardPage page.
@@ -26,7 +27,8 @@ export class DashboardPage {
     public navParams: NavParams,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
-    public dataService: ProposalsServiceProvider
+    public dataService: ProposalsServiceProvider,
+    public InputDialogService: InputDialogServiceProvider
     ) {
   }
 
@@ -64,158 +66,12 @@ export class DashboardPage {
       duration: 3000
     });
     toast.present();
-    this.showEditProposalPrompt(proposal, index);
+    this.InputDialogService.showPrompt(proposal, index);
   }
   
   addProposal() {
     console.log("Submitting Proposal");
-    this.showAddProposalPrompt();
+    this.InputDialogService.showPrompt();
   }
-  
-  // Use Alert Controller Prompt to take input and add proposal to proposals array.
-  showAddProposalPrompt() {
-    const prompt = this.alertCtrl.create({
-      title: 'Submit Proposal',
-      //message: "Please enter item...",
-      inputs: [
-        {
-          name: 'ProjectID',
-          placeholder: 'Project ID'
-        },
-        { 
-          name: 'LastName',
-          placeholder: 'Last Name'
-        },
-        {
-          name: 'FirstName',
-          placeholder: 'First Name'
-        },
-        {
-          name: 'Email',
-          placeholder: 'Primary POC email@emailcom'  
-        },
-        {
-          name: 'Phone',
-          placeholder: 'telephone xxx-xxx-xxxx'
-        },
-        {
-          name: 'Department',
-          placeholder: 'Department'
-        },
-        {
-          name: 'DivBranchCode',
-          placeholder: 'Division / Branch Code'
-        },  
-        {
-          name: 'Category',
-          placeholder: 'Category'
-        },
-        {
-          name: 'Subject',
-          placeholder: 'Subject'
-        },
-        {
-          name: 'Description',
-          placeholder: 'Description'
-        },
-      ],
-  
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data  => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Submit',
-          handler: proposal => {
-            console.log('Submit clicked', proposal);
-            // add new proposal to proposals array
-            this.dataService.addProposal(proposal);
-          }
-        }
-      ]
-      });
-      prompt.present();
-    }
-
-      // Use Alert Controller Prompt to edit existing item in items array.
-  showEditProposalPrompt(proposal, index) {
-    const prompt = this.alertCtrl.create({
-      title: 'Edit Item',
-      message: "Please edit item...",
-      // ternary null operator for values. If item passed, use it, if not null.
-      inputs: [
-        {
-          name: 'ProjectID',
-          placeholder: 'Project ID',
-          value: proposal ? proposal.ProjectID : null
-        },
-        { 
-          name: 'LastName',
-          placeholder: 'Last Name',
-          value: proposal ? proposal.LastName : null
-        },
-        {
-          name: 'FirstName',
-          placeholder: 'First Name',
-          value: proposal ? proposal.FirstName : null
-        },
-        {
-          name: 'Email',
-          placeholder: 'Primary POC email@emailcom',
-          value: proposal ? proposal.Email : null  
-        },
-        {
-          name: 'Phone',
-          placeholder: 'telephone xxx-xxx-xxxx',
-          value: proposal ? proposal.Phone : null
-        },
-        {
-          name: 'Department',
-          placeholder: 'Department',
-          value: proposal ? proposal.Department : null
-        },
-        {
-          name: 'DivBranchCode',
-          placeholder: 'Division / Branch Code',
-          value: proposal ? proposal.DivBranchCode : null
-        },  
-        {
-          name: 'Category',
-          placeholder: 'Category',
-          value: proposal ? proposal.Category : null
-        },
-        {
-          name: 'Subject',
-          placeholder: 'Subject',
-          value: proposal ? proposal.Subject : null
-        },
-        {
-          name: 'Description',
-          placeholder: 'Description',
-          value: proposal ? proposal.Description : null
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data  => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Save',
-          handler: proposal => {
-            console.log('Save clicked', proposal);
-            this.dataService.editProposal(proposal, index);
-          }
-        }
-      ]
-      });
-      prompt.present();
-    }
-
 
 }
