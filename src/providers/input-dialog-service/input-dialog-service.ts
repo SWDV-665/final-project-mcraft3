@@ -26,8 +26,6 @@ export class InputDialogServiceProvider {
       // If proposal, edit, if no proposal add
       title: proposal ? 'Edit Proposal' : 'Add Proposal',
 
-      // If proposal, edit, if no proposal add
-      message: proposal ? 'Please edit proposal...' : 'Please enter proposal...',
       // ternary null operator for values. If proposal passed, use it, if not null.
       inputs: [
         {

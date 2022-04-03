@@ -1,20 +1,41 @@
-<ion-header>
-  <ion-navbar>
+<ion-header class="page-header">
+  <ion-toolbar color="primary">
     <ion-title>
       {{ title }}
     </ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <p>
-    Maryville University of St. Louis, MO<br>
-    John E. Simon School of Business<br>
-    Professor Siddique Hameed<br>
-    Student Michael Gerald Craft<br>
-    Maryville Student ID: 0944631<br> 
-    SWDV-665-11W<br> 
-    Advanced Topics in Software Development<br>
-    Week Two Assignment: Final App Project Write Up<br>
-  </p>
+<ion-content  text-wrap padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+        <ion-card>
+          <img src="../assets/imgs/_images_logos_maryville_vertical_logo.jpg"/>
+          <ion-card-header text-wrap>
+            Contact for Corporate Project Proposals (CPP):
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Add card content here! -->
+              Maryville University of St. Louis, MO<br>
+              John E. Simon School of Business<br>
+              <br>
+              Professor Siddique Hameed<br>
+              Student Michael Gerald Craft<br>
+              Maryville Student ID: 0944631<br> 
+              <br>
+              SWDV-665-11W<br> 
+              Advanced Topics in Software Development<br>
+              Week Four Assignment: CRUD Operations; Styling and Theming<br>
+              https://github.com/SWDV-665/final-project-mcraft3
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+  <p text-center class="copy-right">&emsp; &copy; Corporate Project Proposals</p>
 </ion-content>
