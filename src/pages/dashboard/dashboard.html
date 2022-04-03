@@ -1,0 +1,62 @@
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header class="page-header">
+  <ion-toolbar color="primary">
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content text-wrap>
+
+  <!-- if list is empty, show no item message. -->
+  <h3 class="no-item" text-center *ngIf="loadProposals().length === 0">
+    No proposals available on the list! Click + to add a Proposal!
+  </h3>
+
+  <ion-list>
+
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col col-12 col-sm-9 col-md-6>
+    <!-- Loop thru items array to display all items; assign index. -->
+    <ion-item-sliding *ngFor="let proposal of loadProposals(); let i = index">
+      <ion-item>
+        <h2>{{ "Subject: " + proposal.Subject }}</h2>
+        <h2>{{ "Description: " + proposal.Description }}</h2>
+        <h3>{{ "Project ID: " + proposal.ProjectID }}</h3>
+        <h3>{{ "Full Name: " + proposal.FirstName + " " + proposal.LastName }}</h3>
+        <h3>{{ "Division / Branch Code: " + proposal.DivBranchCode }}</h3>
+      </ion-item>
+      <ion-item-options>
+        <!-- Grab item/object to be edited and its index when selecting. -->
+        <button (click)="editProposal(proposal, i)" ion-button color="primary" icon-start>
+          <ion-icon name="create"></ion-icon>
+          Edit
+        </button> 
+
+        <!-- Grab item/object to be removed and its index when selecting. -->
+        <button (click)="removeProposal(proposal, i)" ion-button color="secondary" icon-start>
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-list>
+
+  <ion-fab bottom right>
+    <button (click)="addProposal()" ion-fab mini>
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <p text-center class="copy-right">&emsp; &copy; Corporate Project Proposals</p>
+</ion-content>

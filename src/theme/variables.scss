@@ -33,6 +33,7 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+/*
 $colors: (
   primary:    #488aff,
   secondary:  #32db64,
@@ -40,7 +41,236 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222
 );
+*/
 
+$colors: (
+  primary:    #44749D,               // Queen Blue
+  secondary:  #C6D4E1,               // Beau Blue
+  danger:     lighten(#EBE7E0, 3%),  // Alabaster
+  light:      #8DB8AD,               // Cambridge Blue
+  dark:       white,                 // White
+);
+
+/* 
+COLOR PALETTE 
+https://coolors.co/44749d-c6d4e1-ebe7e0-8db8ad
+#44749D - Queen Blue                button-primary; header, links
+#C6D4E1 - Beau Blue                 button-secondary; background error & success msg, footer border
+#EBE7E0 - Alabaster                 body, card, articale, image background
+#8DB8AD - Cambridge Blue            field border; background warning msg
+white                               svg background, button text, header background, 
+                                    feature-story background, category background
+black                               text body
+green                               text success msg
+yellow                              text warning msg
+red                                 text error msg
+*/
+
+//-----Declared variables-------------------
+$color-primary1: #44749D;               // Queen Blue 
+$color-primary2: #C6D4E1;               // Beau Blue
+$color-primary3: lighten(#EBE7E0, 3%);  // Alabaster
+$color-primary4: #8DB8AD;               // Cambridge Blue
+$color-primary5: white;                 // White
+$border-radius: 5px;
+
+$item-ios-divider-background: 	#f7f7f7;
+
+/*-----Mix In-----------------------------*/
+@mixin tile {
+  background-color: $color-primary5;
+  border-radius: $border-radius;
+}
+
+/*-----Global Styles ---------------------*/
+body {
+  /* font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", "Helvetica", "Arial", "sans-serif"; */
+  font-family: "Roboto", "Montserrat", "sans-serif";
+  font-weight: regular;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: black;
+  background-color: #f1eee9;
+}
+
+img {
+  width: 100%;
+  height: 200px;
+  max-height: 200px;
+}
+
+svg .svg-inline--fa {
+  color: white;
+}
+
+h1 {
+  font-weight: Regular;
+  font-size: 34px;
+  letter-spacing: 0.25px;
+}
+
+h2 {
+  font-weight: Regular;
+  font-size: 24px;
+  letter-spacing: 0px;
+}
+
+h3 {
+  font-weight: Medium;
+  font-size: 20px;
+  letter-spacing: 0.15px;
+}
+
+p {
+  font-weight: Medium;
+  font-size: 16px;
+  letter-spacing: 0.15px;
+}
+
+/*h1 {
+    font-weight: Light;
+    font-size: 80px;
+    letter-spacing: -1.5px; 
+}
+
+h2 {
+    font-weight: Light;
+    font-size: 60px; 
+    letter-spacing: -0.5px;
+}
+
+h3 {
+    font-weight: Regular; 
+    font-size: 48px; 
+    letter-spacing: 0.0px;
+}
+
+h4 {
+    font-weight: Regular; 
+    font-size: 34px; 
+    letter-spacing: 0.25px;
+}
+
+h5 {
+    font-weight: Regular; 
+    font-size: 24px; 
+    letter-spacing: 0.0px;
+}
+
+h6 {
+    font-weight: Medium; 
+    font-size: 20px; 
+    letter-spacing: 0.15px;
+}*/
+/*-----Button Styles----------------------*/
+button .primary {
+  background-color: #44749D;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  margin-bottom: 10px;
+}
+button .secondary {
+  background-color: #C6D4E1;
+  border-radius: 5px;
+  padding: 10px;
+  color: black;
+}
+
+/*-----Form Styles------------------------*/
+.inputLabel {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input.inputField {
+  padding: 5px;
+  border: 2px solid #8DB8AD;
+}
+
+div.box {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+
+/*-----User Messages Styles---------------*/
+.warning {
+  /*background-color: yellow; */
+  background-color: #8DB8AD;
+  font-weight: bold;
+  /*color: black; */
+  color: yellow;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.error {
+  /* background-color: red; */
+  background-color: #C6D4E1;
+  font-weight: bold;
+  /* color: white; */
+  color: red;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.success {
+  /* background-color: green; */
+  background-color: #C6D4E1;
+  font-weight: bold;
+  /* color: white; */
+  color: green;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/*-----Page-Header------------------------*/
+.page-header {
+  background-color: #44749D;
+  font-weight: bold;
+  color: white;
+}
+
+/*-----Nav Styles-------------------------*/
+nav {
+  background-color: #44749D;
+  font-weight: bold;
+}
+
+/*-----Main Styles------------------------*/
+/*-----Aside (Right Side Content) Styles--*/
+/*-----Feature-Story----------------------*/
+.feature-story {
+  background-color: white;
+  border-radius: 5px;
+}
+
+/*-----Article Spacer---------------------*/
+.spacer {
+  margin-top: 25px;
+  font-weight: Regular;
+  font-size: 24px;
+  letter-spacing: 0px;
+}
+
+/*-----Category---------------------------*/
+.category {
+  background-color: white;
+  border-radius: 5px;
+}
+
+/*-----Footer Styles----------------------*/
+footer {
+  border-top: 1px solid #8DB8AD;
+  margin-top: 50px;
+  padding: 10px;
+  text-align: center;
+}
+.copy-right {
+  font-style: italic;
+}
 
 // App iOS Variables
 // --------------------------------------------------
@@ -86,3 +316,18 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+// AlertController
+$alert-min-width: 350px;
+
+// Minimum width of the alert
+$alert-max-height: 90%;
+
+// Maximum height of the alert
+$alert-button-line-height: 20px; 	
+
+// Line height of the alert button
+$alert-button-font-size: 14px; 	
+
+// Font size of the alert button
+$alert-input-placeholder-color: #999;

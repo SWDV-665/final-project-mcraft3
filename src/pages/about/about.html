@@ -1,141 +1,188 @@
-<ion-header>
-  <ion-navbar>
+<ion-header class="page-header">
+  <ion-toolbar color="primary">
     <ion-title>
-      About
+      {{ title }}
     </ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-      <ion-item>
-        <h2>Week Two Final App Project Write-up: Requirements</h2>
-        <h2>Version 0.2.0 - Initial</h2>
-        <p>
-          As mentioned during Week 1, you need to be working on an Ionic app as your final 
-          project for this course.<br> 
-          The app doesn't have to be very fancy. <br>
-          It should serve as a demonstration of the concepts we learned during the course.<br>
-          More importantly, I would like this app to be something that you can expand or 
-          use in real life after you have completed this course.<br> 
-          <br>
-          It's *OK* to build another chat app or tweet app. But, ask yourself, do you really 
-          want to re-invent the wheel?<br>
-          <br>
-          Here are some of the things to keep in mind that are requirements for this app:<br>
-          <br>
-          1. Yes, it needs to be an Ionic app. Preferably, it will be tested on real mobile device 
-          (iOS or Android).<br> 
-          &emsp; If you can't get hold of a device, that's OK.<br>
-          <br> 
-          2. It should use at least one of the Cordova Native plugins found on 
-          https://ionicframework.com/docs/native/Links to an external site..<br>
-          <br>
-          3. Preferably, the app also uses MongoDB. If it is not relevant to your app, that's OK.<br>
-          <br>
-          4. It's also preferable to utilize Heroku service.<br> 
-          &emsp; Again, if it is not an option, that's fine too.<br>
-          <br>
-          5. If you cannot implement all the features that you envisioned for this app by end of 
-          the week 8, that is perfectly fine.<br> 
-          &emsp; But, please give some documentation of what you implemented and what you couldn't.<br>
-          &emsp; And, share if you have some plans to implement in the future.<br> 
-          <br> 
-          6. Final course app should be submitted into GitHub repository using GitHub Classroom.<br> 
-          &emsp; This is the link to the Final app assignment:<br> 
-          &emsp; https://classroom.github.com/a/vl9UEny0<br>
-          <br>
-          <b>Note: Please push the code you started on the final app as often as possible to allow 
-          for the instructor to review the work you are doing along the way.</b><br>
-        </p>
-      </ion-item>
+<ion-content text-wrap>
 
-      <ion-item>
-        <h2>Week Two Final App Project Write Up: Rubric</h2>
-        <p>
-          1. Topic Choice: Ionic App proposed topic is original and feasible.
-        </p><br>
-        <p>
-          2. Proposed App Meets Criteria: Ionic app will use a Cordova native plugin, Mongo DB 
-             and/or Heroku, and includes plans for specific, implementable features.<br>   
-        </p>
-      </ion-item>
+  <ion-grid>
 
-      <ion-item>
-        <h2>Week Two Final App Project: Write-up</h2>
-        <p>
-          1. Corporate Project Proposals provides a Resource for Management of Internal Research & Development 
-          (IRaD), Sustainment, Lab Revitalization & Maintenance,<br>
-          Capital Investments, Innovation, Ideation, and Change Mangement! 
-        </p><br>
-        <p>
-        <p>
-          2. Storyboard: CPP will provide an app for submitting proposals for internal corporate infrastructure 
-          improvements to support work conducted by the organization.<br> 
-          CPP will support three main use cases & personas, end users for proposal submission, middle management 
-          and or staff that may evaluate, process and prioritization,<br>
-          and investment board decision makers who provide award/grant. This app would include simple functions
-          (proposal form submission), dashboard status display,<br>
-          and complex task (proposal evaluation, prioritization, scoring, selection for award/grant).
-        </p><br>
-        <p>
-          3. Proposals may include sustainment, revitalization, and maintenance, or establishment 
-          of a new facility or capability.
-        </p><br>
-        <p>
-          4. Potential Tabs for the App:<br>
-             &emsp; Home         - Introduction and High Level introduction to the App and Category Areas<br> 
-             &emsp; Categories   - Details of each Category<br> 
-             &emsp; Submit Form  - Submit form to upload a new proposal, including images from device camera to include in proposal<br>
-             &emsp; Dashboard    - List of existing proposals<br>
-             &emsp; About        - Information at this final project assignment<br>
-             &emsp; Contact      - Information about creator of assignment/app and school information
-        </p><br>
-        <p>
-          5. Potential Categories for this App:<br>
-             &emsp; Maintenance - Facilities<br> 
-             &emsp; Maintenance - Shops<br> 
-             &emsp; Capital - Equipment<br> 
-             &emsp; Capital - Small Construction<br> 
-             &emsp; Capital - Large Construction
-        </p>
-      </ion-item>
+    <ion-row justify-content-center>
+      <ion-col col-12 col-sm-9 col-md-6>
+        <ion-card>
+          <ion-card-header text-wrap>
+            Week Two Final App Project Write-up: Requirements<br>
+            Version 0.2.0 - Initial
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Add card content here! -->
+              As mentioned during Week 1, you need to be working on an Ionic app as your final 
+              project for this course.<br> 
+              The app doesn't have to be very fancy. <br>
+              It should serve as a demonstration of the concepts we learned during the course.<br>
+              More importantly, I would like this app to be something that you can expand or 
+              use in real life after you have completed this course.<br> 
+              <br>
+              It's *OK* to build another chat app or tweet app. But, ask yourself, do you really 
+              want to re-invent the wheel?<br>
+              <br>
+              Here are some of the things to keep in mind that are requirements for this app:<br>
+              <br>
+              1. Yes, it needs to be an Ionic app. Preferably, it will be tested on real mobile device 
+              (iOS or Android).<br> 
+              If you can't get hold of a device, that's OK.<br>
+              <br> 
+              2. It should use at least one of the Cordova Native plugins found on 
+              https://ionicframework.com/docs/native/Links to an external site..<br>
+              <br>
+              3. Preferably, the app also uses MongoDB. If it is not relevant to your app, that's OK.<br>
+              <br>
+              4. It's also preferable to utilize Heroku service.<br> 
+              Again, if it is not an option, that's fine too.<br>
+              <br>
+              5. If you cannot implement all the features that you envisioned for this app by end of 
+              the week 8, that is perfectly fine.<br> 
+              But, please give some documentation of what you implemented and what you couldn't.<br>
+              And, share if you have some plans to implement in the future.<br> 
+              <br> 
+              6. Final course app should be submitted into GitHub repository using GitHub Classroom.<br> 
+              This is the link to the Final app assignment:<br> 
+              https://classroom.github.com/a/vl9UEny0<br>
+              <br>
+              <b>Note: Please push the code you started on the final app as often as possible to allow 
+              for the instructor to review the work you are doing along the way.</b><br>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
 
-      <ion-item>
-        <h2>Week Eight Final Project: Rubric</h2>
-        <h2>Version 0.8.0 - Final</h2>
-        <p>
-          1. The code compiles and runs without any errors from Ionic CLI.
-        </p><br>
-        <p>
-          2. Code should be readable. Please add comments wherever necessary.<br>   
-             &emsp; Naming of variables, class names, file names, etc. should be relevant to what the app is doing.
-        </p><br>
-        <p>
-          3. All the app features are working as intended.
-        </p><br>
-        <p>
-          4. The app utilizes Cordova native plugin.
-        </p><br>
-        <p>
-          5. The app includes aesthetics and UI aspects with some custom styling or theming.
-        </p><br>
-        <p>
-          6. The app utilizes custom Angular services.tom styling or theming.
-        </p><br>
-        <p>
-          <b>Note: Refer to Week Two requirements at top for composite with week eight rubric.<br>
-             &emsp;&emsp; (Preferable to ue MongoDB<br>
-             &emsp;&emsp; and preferable to use Heroku platform as a service (PaaS)<br> 
-             &emsp;&emsp; that enables developers to build, run, and operate applications entirely in the cloud.)
-          </b>
-        </p><br>
-        <p>
-          Modified Version Control for classroom use: minor updates weekly; patches if required within the week.<br> 
-          Initial is Week Two: 0.2.0<br>
-          Final is Week Eight: 0.8.0
-        </p>
+    <ion-row justify-content-center>
+      <ion-col col-12 col-sm-9 col-md-6>
+        <ion-card>
+          <ion-card-header text-wrap>
+            Week Two Final App Project Write Up: Rubric
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Add card content here! -->
+            1. Topic Choice: Ionic App proposed topic is original and feasible.<br>
+            <br>
+            2. Proposed App Meets Criteria: Ionic app will use a Cordova native plugin, Mongo DB 
+            and/or Heroku, and includes plans for specific, implementable features.<br>  
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
 
-      </ion-item>
-</ion-list>
+    <ion-row justify-content-center>
+      <ion-col col-12 col-sm-9 col-md-6>
+        <ion-card>
+          <ion-card-header text-wrap>
+            Week Two Final App Project: Write-up
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Add card content here! -->
+            1. Corporate Project Proposals provides a Resource for Management of Internal Research 
+            & Development (IRaD), Sustainment, Lab Revitalization & Maintenance, Capital Investments, 
+            Innovation, Ideation, and Change Mangement!<br> 
+            <br>
+            2. Storyboard: CPP will provide an app for submitting proposals for internal corporate 
+            infrastructure improvements to support work conducted by the organization.<br>
+            <br>
+            CPP will support three main use cases & personas, end users for proposal submission, middle 
+            management and or staff that may evaluate, process and prioritization, and investment board 
+            decision makers who provide award/grant. This app would include simple functions (proposal 
+            form submission), dashboard status display, and complex task (proposal evaluation, 
+            prioritization, scoring, selection for award/grant).<br>
+            <br>
+            3. Proposals may include sustainment, revitalization, and maintenance, or establishment 
+            of a new facility or capability.<br>
+            <br>
+            4. Potential Tabs for the App:<br>
+            <br>
+            Home         - Introduction and High Level introduction to the App and Category Areas<br> 
+            <br>
+            Categories   - Details of each Category<br> 
+            <br>
+            Submit Form  - Submit form to upload a new proposal, including images from device camera to include in proposal<br>
+            <br>
+            Dashboard    - List of existing proposals<br>
+            <br>
+            About        - Information at this final project assignment<br>
+            <br>
+            Contact      - Information about creator of assignment/app and school information<br>
+            <br>
+            5. Potential Categories for this App:<br>
+            &emsp; Maintenance - Facilities<br> 
+            &emsp; Maintenance - Shops<br> 
+            &emsp; Capital - Equipment<br> 
+            &emsp; Capital - Small Construction<br> 
+            &emsp; Capital - Large Construction<br>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center>
+      <ion-col col-12 col-sm-9 col-md-6>
+        <ion-card>
+          <ion-card-header text-wrap>
+            Week Eight Final App Project: Rubric<br>
+            Version 0.8.0 - Final
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Add card content here! -->
+            1. The code compiles and runs without any errors from Ionic CLI.<br>
+            2. Code should be readable. Please add comments wherever necessary.<br>   
+               Naming of variables, class names, file names, etc. should be relevant to 
+               what the app is doing.<br>
+            3. All the app features are working as intended.<br>
+            4. The app utilizes Cordova native plugin.<br>
+            5. The app includes aesthetics and UI aspects with some custom styling or theming.<br>
+            6. The app utilizes custom Angular services.tom styling or theming.<br>
+            <br>
+            <b>Note:<br> 
+            <br>
+            Refer to Week Two requirements at top for composite with week eight rubric.<br>
+            <br>
+            (Preferable to ue MongoDB<br>
+            <br>
+            and preferable to use Heroku platform as a service (PaaS) that enables developers 
+            to build, run, and operate applications entirely in the cloud.)</b><br>
+            <br>
+            Modified Version Control for classroom use: minor updates weekly; patches if required within the week.<br> 
+            Github Repo Branches:<br>
+            Initial is Week Two: 0.2.0<br>
+            Final is Week Eight: 0.8.0
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center>
+      <ion-col col-12 col-sm-9 col-md-6>
+        <ion-card>
+          <ion-card-header>
+            Sprints
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Add card content here! -->
+            Week 1 - Establish Dev Environment; Setup<br>
+            Week 2 - Create Initial Ionic-Angular App; List Component<br>
+            Week 3 - Adding and Removing Items<br>
+            Week 4 - CRUD Operations; Styling and Theming<br>
+            Week 5 - Ionic Native Plugins (Cordova)<br>
+            Week 6 - Persisting Data with Restful Service Using Express, Mongoose and MongoDB<br>
+            Week 7 - Deploying to Heroku Cloud - Platform as a Servier (PaaS)<br>
+            Week 8 - Final Project<br>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  
+  <p text-center class="copy-right">&emsp; &copy; Corporate Project Proposals</p>
 </ion-content>
