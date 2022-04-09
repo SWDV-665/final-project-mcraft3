@@ -31,6 +31,12 @@
         <h3>{{ "Project ID: " + proposal.ProjectID }}</h3>
         <h3>{{ "Full Name: " + proposal.FirstName + " " + proposal.LastName }}</h3>
         <h3>{{ "Division / Branch Code: " + proposal.DivBranchCode }}</h3>
+        <img class="user-profile-img" src="{{ userImg }}" alt="">
+        <p text-center>Provide Proposal Image</p>
+        <div text-center>
+          <button ion-button (click)="openCamera()">Open Camera</button>
+          <button ion-button (click)="openGallery()">Upload Image</button>
+        </div>
       </ion-item>
       <ion-item-options>
         <!-- Grab item/object to be edited and its index when selecting. -->

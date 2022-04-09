@@ -14,6 +14,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProposalsServiceProvider } from '../providers/proposals-service/proposals-service';
 import { InputDialogServiceProvider } from '../providers/input-dialog-service/input-dialog-service';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { InputDialogServiceProvider } from '../providers/input-dialog-service/in
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProposalsServiceProvider,
-    InputDialogServiceProvider
+    InputDialogServiceProvider,
+    Camera
   ]
 })
 export class AppModule {}

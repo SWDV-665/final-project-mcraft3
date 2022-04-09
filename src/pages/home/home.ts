@@ -10,8 +10,10 @@ export class HomePage {
   // Class variable for angular template of title of home.html page
   title = "CPP: Home Page";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  shopImg: any = '';
 
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.shopImg = 'assets/imgs/shop.svg'
   }
 
   ionViewDidLoad() {

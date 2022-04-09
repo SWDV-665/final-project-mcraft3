@@ -5,6 +5,8 @@ import { AlertController } from 'ionic-angular';
 // Go up one extra level (add extra ../) to get app folder and back down to providers folder
 import { ProposalsServiceProvider } from '../../providers/proposals-service/proposals-service';
 import { InputDialogServiceProvider } from '../../providers/input-dialog-service/input-dialog-service';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Platform } from 'ionic-angular';
 
 /**
  * Generated class for the DashboardPage page.
@@ -22,14 +24,75 @@ export class DashboardPage {
   // Class variable for angular template of title of dashboard.html page
   title = "CPP: Dashboard";
 
+  userImg: any = '';
+  base64Img = '';
+
+  /*
+  Available Options:
+
+  quality: it ranges from 0-100
+  sourceType: Source of an image can be PHOTOLIBRARY(0), CAMERA(1), SAVEDPHOTOALBUM(2)
+  encodingType: JPEG(0) or PNG(1)
+  saveToPhotoAlbum: Save the image to the photo album on the device after capture
+  cameraDirection: BACK(0) or FRONT(1)
+  targetWidth: width in pixels, example 512.
+  targetHeight: height in pixels, example 512.
+  */
+
+  cameraOptions: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.FILE_URI,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    allowEdit: true,
+    targetWidth: 300,
+    targetHeight: 200
+  }
+
+  galleryOptions: CameraOptions = {
+    quality: 100,
+    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+    destinationType: this.camera.DestinationType.FILE_URI,
+    allowEdit: true,
+    targetWidth: 300,
+    targetHeight: 200
+  }
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public dataService: ProposalsServiceProvider,
-    public InputDialogService: InputDialogServiceProvider
+    public InputDialogService: InputDialogServiceProvider,
+    private camera: Camera,
+    public platform: Platform
     ) {
+      platform.ready().then(() => {
+        // Okay, so the platform is ready and our plugins are available.
+        // Here you can do any higher level native things you might need.
+      })
+      this.userImg = 'assets/imgs/image.svg'
+  }
+
+  openCamera() {
+    this.camera.getPicture(this.cameraOptions).then((imgData) => {
+      console.log('image data => ', imgData);
+      this.base64Img = 'data:image/jpeg;base64,' + imgData;
+      this.userImg = this.base64Img;
+    }, (err) => {
+      console.log(err);
+    })
+  }
+
+  openGallery() {
+    this.camera.getPicture(this.galleryOptions).then((imgData) => {
+      console.log('image data => ', imgData);
+      this.base64Img = 'data:image/jpeg;base64,' + imgData;
+      this.userImg = this.base64Img;
+    }, (err) => {
+      console.log(err);
+    })
   }
 
   ionViewDidLoad() {
