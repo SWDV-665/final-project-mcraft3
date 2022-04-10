@@ -6,7 +6,6 @@ import { AlertController } from 'ionic-angular';
 import { ProposalsServiceProvider } from '../../providers/proposals-service/proposals-service';
 import { InputDialogServiceProvider } from '../../providers/input-dialog-service/input-dialog-service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { Platform } from 'ionic-angular';
 
 /**
  * Generated class for the DashboardPage page.
@@ -27,37 +26,6 @@ export class DashboardPage {
   userImg: any = '';
   base64Img = '';
 
-  /*
-  Available Options:
-
-  quality: it ranges from 0-100
-  sourceType: Source of an image can be PHOTOLIBRARY(0), CAMERA(1), SAVEDPHOTOALBUM(2)
-  encodingType: JPEG(0) or PNG(1)
-  saveToPhotoAlbum: Save the image to the photo album on the device after capture
-  cameraDirection: BACK(0) or FRONT(1)
-  targetWidth: width in pixels, example 512.
-  targetHeight: height in pixels, example 512.
-  */
-
-  cameraOptions: CameraOptions = {
-    quality: 100,
-    destinationType: this.camera.DestinationType.FILE_URI,
-    encodingType: this.camera.EncodingType.JPEG,
-    mediaType: this.camera.MediaType.PICTURE,
-    allowEdit: true,
-    targetWidth: 300,
-    targetHeight: 200
-  }
-
-  galleryOptions: CameraOptions = {
-    quality: 100,
-    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-    destinationType: this.camera.DestinationType.FILE_URI,
-    allowEdit: true,
-    targetWidth: 300,
-    targetHeight: 200
-  }
-
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -65,18 +33,34 @@ export class DashboardPage {
     public alertCtrl: AlertController,
     public dataService: ProposalsServiceProvider,
     public InputDialogService: InputDialogServiceProvider,
-    private camera: Camera,
-    public platform: Platform
+    private camera: Camera
     ) {
-      platform.ready().then(() => {
-        // Okay, so the platform is ready and our plugins are available.
-        // Here you can do any higher level native things you might need.
-      })
-      this.userImg = 'assets/imgs/image.svg'
+
   }
 
   openCamera(proposal) {
-    this.camera.getPicture(this.cameraOptions).then((imgData) => {
+    /*
+    Available Options:
+
+    quality: it ranges from 0-100
+    sourceType: Source of an image can be PHOTOLIBRARY(0), CAMERA(1), SAVEDPHOTOALBUM(2)
+    encodingType: JPEG(0) or PNG(1)
+    saveToPhotoAlbum: Save the image to the photo album on the device after capture
+    cameraDirection: BACK(0) or FRONT(1)
+    targetWidth: width in pixels, example 512.
+    targetHeight: height in pixels, example 512.
+    */
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit: true,
+      targetWidth: 300,
+      targetHeight: 200
+    }
+
+    this.camera.getPicture(options).then((imgData) => {
       console.log('image data => ', imgData);
       this.base64Img = 'data:image/jpeg;base64,' + imgData;
       this.userImg = this.base64Img;
@@ -84,10 +68,20 @@ export class DashboardPage {
     }, (err) => {
       console.log(err);
     })
+
   }
 
   openGallery(proposal) {
-    this.camera.getPicture(this.galleryOptions).then((imgData) => {
+    const galleryOptions: CameraOptions = {
+      quality: 100,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      allowEdit: true,
+      targetWidth: 300,
+      targetHeight: 200
+    }
+
+    this.camera.getPicture(galleryOptions).then((imgData) => {
       console.log('image data => ', imgData);
       this.base64Img = 'data:image/jpeg;base64,' + imgData;
       this.userImg = this.base64Img;
