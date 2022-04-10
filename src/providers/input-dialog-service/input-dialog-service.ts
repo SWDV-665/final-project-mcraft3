@@ -79,9 +79,9 @@ export class InputDialogServiceProvider {
           value: proposal ? proposal.Description : null
         },
         {
-        name: 'ProposalImage',
-        placeholder: 'assets/imgs/image.svg',
-        value: proposal ? proposal.ProposalImage : null
+        name: 'userImg',
+        placeholder: 'Proposal Image',
+        value: 'assets/imgs/image.svg'
         },
       ],
       buttons: [
