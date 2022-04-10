@@ -23,6 +23,8 @@ export class DashboardPage {
   // Class variable for angular template of title of dashboard.html page
   title = "CPP: Dashboard";
 
+  //TODO: Extract to ImageService openCamera() & openGallery().
+
   userImg: any = '';
   base64Img = '';
 
