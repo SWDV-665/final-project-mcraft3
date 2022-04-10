@@ -25,7 +25,8 @@ export class ProposalsServiceProvider {
       Description: "Need projector, displays, speakers, etc.",
       SafetyIssue: "no",
       SecurityIssue: "no",
-      Submitted: "2021-04-28T22:57:58+00:00"
+      Submitted: "2021-04-28T22:57:58+00:00",
+      userImg: 'assets/imgs/robotics.png'
     },
     {
       ProjectID:5281,
@@ -41,7 +42,8 @@ export class ProposalsServiceProvider {
       Description: "For pizza delivery uav project.",
       SafetyIssue: "no",
       SecurityIssue: "no",
-      Submitted: "2021-04-28T23:49:26+00:00"
+      Submitted: "2021-04-28T23:49:26+00:00",
+      userImg: 'assets/imgs/image.svg'
     },
     {
       ProjectID: 20102,
@@ -57,7 +59,8 @@ export class ProposalsServiceProvider {
       Description: "Need hot water.",
       SafetyIssue: "yes",
       SecurityIssue: "no",
-      Submitted: "2021-04-29T00:08:40+00:00"
+      Submitted: "2021-04-29T00:08:40+00:00",
+      userImg: 'assets/imgs/image.svg'
     },
     {
       ProjectID: 6558,
@@ -73,7 +76,8 @@ export class ProposalsServiceProvider {
       Description: "CAD software is obsolete.",
       SafetyIssue: null,
       SecurityIssue: "yes",
-      Submitted: "2021-04-29T00:10:47+00:00"
+      Submitted: "2021-04-29T00:10:47+00:00",
+      userImg: 'assets/imgs/image.svg'
     },
     {
       ProjectID: 43697,
@@ -89,7 +93,8 @@ export class ProposalsServiceProvider {
       Description: "Building is at 88F. Heat is stuck on. Controls not working.",
       SafetyIssue: "yes",
       SecurityIssue: "no",
-      Submitted: "2021-04-29T00:12:28+00:00"
+      Submitted: "2021-04-29T00:12:28+00:00",
+      userImg: 'assets/imgs/image.svg'
     },
     {
       ProjectID: 85767,
@@ -105,7 +110,8 @@ export class ProposalsServiceProvider {
       Description: "Need lab to recycle, re-purpose, and manufacture new vibranium widgets for Captain America.",
       SafetyIssue: "yes",
       SecurityIssue: "yes",
-      Submitted: "2021-04-29T00:17:05+00:00"
+      Submitted: "2021-04-29T00:17:05+00:00",
+      userImg: 'assets/imgs/image.svg'
     },
     {
       ProjectID: 59362,
@@ -120,7 +126,8 @@ export class ProposalsServiceProvider {
       Description: "Need tech refresh of metal 3D Printer.",
       SafetyIssue: "yes",
       SecurityIssue: "no",
-      Submitted: "2021-04-30T00:32:35+00:00"
+      Submitted: "2021-04-30T00:32:35+00:00",
+      userImg: 'assets/imgs/image.svg'
     },
     {
       ProjectID: 59628,
@@ -136,7 +143,8 @@ export class ProposalsServiceProvider {
       Description: "Need new bow.",
       SafetyIssue: "yes",
       SecurityIssue: "no",
-      Submitted: "2021-04-30T00:35:29+00:00"
+      Submitted: "2021-04-30T00:35:29+00:00",
+      userImg: 'assets/imgs/image.svg'
     },
     {
       ProjectID: 96238,
@@ -152,7 +160,8 @@ export class ProposalsServiceProvider {
       Description: "My blade is dull, please resharpen.",
       SafetyIssue: "yes",
       SecurityIssue: "no",
-      Submitted: "2021-04-30T00:37:04+00:00"
+      Submitted: "2021-04-30T00:37:04+00:00",
+      userImg: 'assets/imgs/image.svg'
     },
     {
       ProjectID:50445,
@@ -168,7 +177,8 @@ export class ProposalsServiceProvider {
       Description:"Please use elk horn or ironwood for the handle.",
       SafetyIssue:"yes",
       SecurityIssue:"no",
-      Submitted:"2021-04-30T00:38:50+00:00"
+      Submitted:"2021-04-30T00:38:50+00:00",
+      userImg: 'assets/imgs/image.svg'
     },
     {
       ProjectID: 23219,
@@ -184,7 +194,8 @@ export class ProposalsServiceProvider {
       Description: "Please dry clean the cape and attach a new S emblem to replace the worn out emblem.",
       SafetyIssue: "no",
       SecurityIssue: "no",
-      Submitted: "2021-04-30T00:40:41+00:00"
+      Submitted: "2021-04-30T00:40:41+00:00",
+      userImg: 'assets/imgs/image.svg'
     }
   ]
 

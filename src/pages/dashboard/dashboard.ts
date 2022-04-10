@@ -75,21 +75,23 @@ export class DashboardPage {
       this.userImg = 'assets/imgs/image.svg'
   }
 
-  openCamera() {
+  openCamera(proposal) {
     this.camera.getPicture(this.cameraOptions).then((imgData) => {
       console.log('image data => ', imgData);
       this.base64Img = 'data:image/jpeg;base64,' + imgData;
       this.userImg = this.base64Img;
+      proposal.userImg = this.userImg;
     }, (err) => {
       console.log(err);
     })
   }
 
-  openGallery() {
+  openGallery(proposal) {
     this.camera.getPicture(this.galleryOptions).then((imgData) => {
       console.log('image data => ', imgData);
       this.base64Img = 'data:image/jpeg;base64,' + imgData;
       this.userImg = this.base64Img;
+      proposal.userImg = this.userImg;
     }, (err) => {
       console.log(err);
     })
