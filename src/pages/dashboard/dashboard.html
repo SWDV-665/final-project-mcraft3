@@ -21,7 +21,8 @@
   <ion-list>
     <ion-grid>
       <ion-row justify-content-center>
-        <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3> 
+        <ion-col col-12 col-sm-12 col-md-9 col-lg-4 col-lg-4>
+
           <!-- Loop thru items array to display all items; assign index. -->
           <ion-item-sliding *ngFor="let proposal of loadProposals(); let i = index">
 
@@ -35,8 +36,8 @@
                 </ng-template>
                 <div text-center>
                   <p text-center>Provide Proposal Image</p>
-                  <button ion-button (click)="openCamera(proposal)">Open Camera</button>
-                  <button ion-button (click)="openGallery(proposal)">Upload Image</button>
+                  <button ion-button color="primary" (click)="openCamera(proposal)">Open Camera</button>
+                  <button ion-button color="secondary" (click)="openGallery(proposal)">Upload Image</button>
                 </div>
 
                 <h2>{{ "Subject: " + proposal.Subject }}</h2>
@@ -45,7 +46,6 @@
                 <h3>{{ "Full Name: " + proposal.FirstName + " " + proposal.LastName }}</h3>
                 <h3>{{ "Division / Branch Code: " + proposal.DivBranchCode }}</h3>
               </ion-card>
-
             </ion-item>
               
             <ion-item-options>
