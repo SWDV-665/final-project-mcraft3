@@ -15,6 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProposalsServiceProvider } from '../providers/proposals-service/proposals-service';
 import { InputDialogServiceProvider } from '../providers/input-dialog-service/input-dialog-service';
 import { Camera } from '@ionic-native/camera';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { Camera } from '@ionic-native/camera';
   ],
   imports: [
     BrowserModule,
+    // import HttpClientModule after BrowserModule.
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

@@ -11,9 +11,9 @@ import { DashboardPage } from '../dashboard/dashboard';
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
-  tab2Root = CategoriesPage;
-  tab3Root = DashboardPage;
+  tab1Root = DashboardPage;
+  tab2Root = HomePage;
+  tab3Root = CategoriesPage;
   tab4Root = AboutPage;
   tab5Root = ContactPage;
 

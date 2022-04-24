@@ -6,6 +6,8 @@ import { AlertController } from 'ionic-angular';
 import { ProposalsServiceProvider } from '../../providers/proposals-service/proposals-service';
 import { InputDialogServiceProvider } from '../../providers/input-dialog-service/input-dialog-service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Proposal } from '../../app/types';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the DashboardPage page.
@@ -28,16 +30,39 @@ export class DashboardPage {
   userImg: any = '';
   base64Img = '';
 
+  // proposals: any = [];
+  proposals: Observable<Proposal[]>;
+  errorMessage: string;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public dataService: ProposalsServiceProvider,
-    public InputDialogService: InputDialogServiceProvider,
+    public inputDialogService: InputDialogServiceProvider,
     private camera: Camera
     ) {
+      const toast = this.toastCtrl.create({
+        message: 'Retrieving list from database',
+        duration: 2000,
+        position: 'bottom',
+        showCloseButton: true,
+      });
+      toast.onDidDismiss(() => {
+        console.log('dashboard.ts: Dismissed getAllProposals toast');
+      });
+      toast.present();
 
+      setTimeout( () => {
+        // Get and initialize proposals in dataService.
+        // Loading of loadProposals() call during construction/startup.
+        this.proposals = dataService.getAllProposals();
+      }, 1000);
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad DashboardPage');
   }
 
   openCamera(proposal) {
@@ -53,13 +78,13 @@ export class DashboardPage {
     targetHeight: height in pixels, example 512.
     */
     const options: CameraOptions = {
-      quality: 100,
+      quality: 50,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       allowEdit: true,
-      targetWidth: 300,
-      targetHeight: 200
+      targetWidth: 225,
+      targetHeight: 150
     }
 
     this.camera.getPicture(options).then((imgData) => {
@@ -67,6 +92,7 @@ export class DashboardPage {
       this.base64Img = 'data:image/jpeg;base64,' + imgData;
       this.userImg = this.base64Img;
       proposal.userImg = this.userImg;
+      this.dataService.saveImage(proposal);
     }, (err) => {
       console.log(err);
     })
@@ -75,12 +101,13 @@ export class DashboardPage {
 
   openGallery(proposal) {
     const galleryOptions: CameraOptions = {
-      quality: 100,
+      quality: 50,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
       allowEdit: true,
-      targetWidth: 300,
-      targetHeight: 200
+      targetWidth: 225,
+      targetHeight: 150
     }
 
     this.camera.getPicture(galleryOptions).then((imgData) => {
@@ -88,51 +115,38 @@ export class DashboardPage {
       this.base64Img = 'data:image/jpeg;base64,' + imgData;
       this.userImg = this.base64Img;
       proposal.userImg = this.userImg;
+      this.dataService.saveImage(proposal);
     }, (err) => {
       console.log(err);
     })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
-  }
-
-  // Get and initialize items in dataService.
+  /*
+  // Get and initialize proposals in dataService.
   loadProposals() {
-    return this.dataService.getProposals();
+    return this.dataService.getAllProposals();
   }
+  */
 
   // remove proposal with object and it's index as parameters.
   removeProposal(proposal, index) {
-    console.log("Deleting proposal - ", proposal, "index: ", index);
-    // Display ionic toast component message alert to confirm proposal being deleted.
-    const toast = this.toastCtrl.create({
-      message: 'Deleting Proposal - ' + 'index: ' + index + " ...",
-      duration: 3000,
-      position: 'bottom',
-      showCloseButton: true,
-    });
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-    toast.present();
+    console.log("DS.ts: Removing Proposal - ", proposal, "index: ", index, "ID: ", proposal._id);
+    // Display ionic toast component message alert to confirm item being removed.
+  
     // Remove one object at given index.
-    this.dataService.removeProposal(index);
+    this.dataService.removeProposal(proposal);
   }
 
-  editProposal(proposal, index) {
-    console.log("Edit item - ", proposal, index);
-    const toast = this.toastCtrl.create({
-      message: 'Editing Item - ' + index + " ...",
-      duration: 3000
-    });
-    toast.present();
-    this.InputDialogService.showPrompt(proposal, index);
+  // Edit proposal with object and it's index as parameters.
+  editProposal(proposal: Proposal, index) {
+    console.log("DS.ts: Edit Proposal - ", proposal, "index: ", index, "ID: ", proposal._id);
+    this.inputDialogService.showEditPrompt(proposal, index);
   }
-  
+
+  // Add items using alertController.
   addProposal() {
-    console.log("Submitting Proposal");
-    this.InputDialogService.showPrompt();
+    console.log("DS.ts: Adding Item");
+    this.inputDialogService.showAddPrompt();
   }
 
 }
