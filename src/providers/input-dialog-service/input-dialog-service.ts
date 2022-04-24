@@ -19,69 +19,71 @@ export class InputDialogServiceProvider {
     console.log('Hello InputDialogServiceProvider Provider');
   }
 
-  // Use Alert Controller Prompt to edit existing item in items array.
+  // Use Alert Controller Prompt to edit existing proposal in proposals array.
   // ? makes parameters optional for add case.
-  showPrompt(proposal?, index?) {
+  showAddPrompt(proposal?, index?) {
     const prompt = this.alertCtrl.create({
       // If proposal, edit, if no proposal add
       title: proposal ? 'Edit Proposal' : 'Add Proposal',
 
       // ternary null operator for values. If proposal passed, use it, if not null.
       inputs: [
+        /*
         {
-          name: 'ProjectID',
+          name: '_id',
           placeholder: 'Project ID',
-          value: proposal ? proposal.ProjectID : null
+          value: proposal ? proposal._id : null
         },
+        */
         { 
-          name: 'LastName',
+          name: 'lastName',
           placeholder: 'Last Name',
-          value: proposal ? proposal.LastName : null
+          value: proposal ? proposal.lastName : null
         },
         {
-          name: 'FirstName',
+          name: 'firstName',
           placeholder: 'First Name',
-          value: proposal ? proposal.FirstName : null
+          value: proposal ? proposal.firstName : null
         },
         {
-          name: 'Email',
+          name: 'email',
           placeholder: 'Primary POC email@emailcom',
-          value: proposal ? proposal.Email : null  
+          value: proposal ? proposal.email : null  
         },
         {
-          name: 'Phone',
+          name: 'phone',
           placeholder: 'telephone xxx-xxx-xxxx',
-          value: proposal ? proposal.Phone : null
+          value: proposal ? proposal.phone : null
         },
         {
-          name: 'Department',
+          name: 'department',
           placeholder: 'Department',
-          value: proposal ? proposal.Department : null
+          value: proposal ? proposal.department : null
         },
         {
-          name: 'DivBranchCode',
+          name: 'divBranchCode',
           placeholder: 'Division / Branch Code',
-          value: proposal ? proposal.DivBranchCode : null
+          value: proposal ? proposal.divBranchCode : null
         },  
         {
-          name: 'Category',
+          name: 'category',
           placeholder: 'Category',
-          value: proposal ? proposal.Category : null
+          value: proposal ? proposal.category : null
         },
         {
-          name: 'Subject',
+          name: 'subject',
           placeholder: 'Subject',
-          value: proposal ? proposal.Subject : null
+          value: proposal ? proposal.subject : null
         },
         {
-          name: 'Description',
+          name: 'description',
           placeholder: 'Description',
-          value: proposal ? proposal.Description : null
+          value: proposal ? proposal.description : null
         },
         {
         name: 'userImg',
         placeholder: 'Proposal Image',
-        value: 'assets/imgs/image.svg'
+        value: proposal ? proposal.userImg : 'assets/imgs/image.svg'
         },
       ],
       buttons: [
@@ -96,6 +98,107 @@ export class InputDialogServiceProvider {
           handler: proposal => {
             console.log('Save clicked', proposal);
             if (index !== undefined) {
+            this.dataService.editProposal(proposal, index);
+            }
+            else {
+              // add new proposal to proposals array. Moved to proposals-service.ts.
+              this.dataService.addProposal(proposal);
+            }
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  // Use Alert Controller Prompt to edit existing proposal in proposals array.
+  // ? makes parameters optional for add case.
+  showEditPrompt(proposal?, index?) {
+    const prompt = this.alertCtrl.create({
+      // If proposal, edit, if no proposal add
+      title: proposal ? 'Edit Proposal' : 'Add Proposal',
+
+      // ternary null operator for values. If proposal passed, use it, if not null.
+      inputs: [
+        {
+          name: '_id',
+          placeholder: 'Project ID',
+          value: proposal ? proposal._id : null
+        },
+        { 
+          name: 'lastName',
+          placeholder: 'Last Name',
+          value: proposal ? proposal.lastName : null
+        },
+        {
+          name: 'firstName',
+          placeholder: 'First Name',
+          value: proposal ? proposal.firstName : null
+        },
+        {
+          name: 'email',
+          placeholder: 'Primary POC email@emailcom',
+          value: proposal ? proposal.email : null  
+        },
+        {
+          name: 'phone',
+          placeholder: 'telephone xxx-xxx-xxxx',
+          value: proposal ? proposal.phone : null
+        },
+        {
+          name: 'department',
+          placeholder: 'Department',
+          value: proposal ? proposal.department : null
+        },
+        {
+          name: 'divBranchCode',
+          placeholder: 'Division / Branch Code',
+          value: proposal ? proposal.divBranchCode : null
+        },  
+        {
+          name: 'category',
+          placeholder: 'Category',
+          value: proposal ? proposal.category : null
+        },
+        {
+          name: 'subject',
+          placeholder: 'Subject',
+          value: proposal ? proposal.subject : null
+        },
+        {
+          name: 'description',
+          placeholder: 'Description',
+          value: proposal ? proposal.description : null
+        },
+        {
+        name: 'userImg',
+        placeholder: 'Proposal Image',
+        value: proposal ? proposal.userImg : 'assets/imgs/image.svg'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: proposal  => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: proposal => {
+            console.log('IDS.ts: Save Handler ', proposal, "index: ", index, "ID: ", proposal._id);
+            if (index !== undefined) {
+              proposal._id = proposal._id;
+              proposal.lastName = proposal.lastName;
+              proposal.firstName = proposal.firstName;
+              proposal.email = proposal.email;
+              proposal.phone = proposal.phone;
+              proposal.department = proposal.department;
+              proposal.divBranchCode = proposal.divBranchCode;
+              proposal.category = proposal.category;
+              proposal.subject = proposal.subject;
+              proposal.description = proposal.description;
+              proposal.userImg = proposal.userImg;
             this.dataService.editProposal(proposal, index);
             }
             else {

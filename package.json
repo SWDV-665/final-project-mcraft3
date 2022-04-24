@@ -1,8 +1,9 @@
 {
   "name": "swdv-665-final-project",
-  "version": "0.5.3",
+  "version": "0.8.0",
   "author": "Michael G. Craft",
   "homepage": "https://github.com/SWDV-665/final-project-mcraft3",
+  "description": "An Ionic Cordova Client App to work with proposal-server using Node.js, Express, Mongoose, and REST Services",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",
@@ -52,7 +53,6 @@
     "@ionic/app-scripts": "3.2.4",
     "typescript": "2.6.2"
   },
-  "description": "An Ionic project",
   "cordova": {
     "plugins": {
       "cordova-plugin-statusbar": {},
