@@ -68,6 +68,7 @@
 
 -----------------------------
 24. Updates ion-item-sliding ngFor item of items to item of (item | async) in dashboard.html
+25. Adds ion refresher to dashboard.html and dashboard.ts to provide pull to refresh of that tab only to provide means to clear or cancel of either the open camera or the open image features.
 
 ### Run ionic cordova build browser so camera and filesystem works in browser for desktop, tablet, iOS. or Android
 cordova --version
