@@ -13,6 +13,10 @@
 
 <ion-content text-wrap>
 
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <!-- if list is empty, show no proposal message.
   <h3 class="no-proposal" text-center *ngIf="loadProposals().length === 0">
     No proposals available on the list! Click + to add a Proposal!

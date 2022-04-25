@@ -65,6 +65,16 @@ export class DashboardPage {
     console.log('ionViewDidLoad DashboardPage');
   }
 
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    window.location.reload();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
   openCamera(proposal) {
     /*
     Available Options:
