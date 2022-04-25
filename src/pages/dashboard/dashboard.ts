@@ -45,7 +45,7 @@ export class DashboardPage {
     ) {
       const toast = this.toastCtrl.create({
         message: 'Retrieving list from database',
-        duration: 2000,
+        duration: 3000,
         position: 'bottom',
         showCloseButton: true,
       });
@@ -57,7 +57,7 @@ export class DashboardPage {
       setTimeout( () => {
         // Get and initialize proposals in dataService.
         // Loading of loadProposals() call during construction/startup.
-        this.proposals = dataService.getAllProposals();
+        this.proposals = this.loadProposals();
       }, 1000);
   }
 
@@ -121,17 +121,16 @@ export class DashboardPage {
     })
   }
 
-  /*
+  
   // Get and initialize proposals in dataService.
   loadProposals() {
     return this.dataService.getAllProposals();
   }
-  */
+  
 
   // remove proposal with object and it's index as parameters.
   removeProposal(proposal, index) {
     console.log("DS.ts: Removing Proposal - ", proposal, "index: ", index, "ID: ", proposal._id);
-    // Display ionic toast component message alert to confirm item being removed.
   
     // Remove one object at given index.
     this.dataService.removeProposal(proposal);

@@ -28,7 +28,7 @@ export class InputDialogServiceProvider {
 
       // ternary null operator for values. If proposal passed, use it, if not null.
       inputs: [
-        /*
+        /* For showAddPrompt, displaying _id not needed as it has not been generated yet.
         {
           name: '_id',
           placeholder: 'Project ID',
